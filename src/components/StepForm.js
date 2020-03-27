@@ -62,7 +62,7 @@ const handleChange = (evt, value) => {
               {"appetite": appetiteAnswer}
           ]
 
-          console.log(quesAnswers[2])
+          // console.log(quesAnswers[2])
 
  
 
@@ -72,12 +72,6 @@ const handleChange = (evt, value) => {
   const handleBack = () => setSteps(steps - 1)
 
  
-
-
-  
-  
-    
-
   const handleSteps = step => {
 
     switch (step) {

@@ -17,6 +17,7 @@ function App() {
       {/* <Graph /> */}
       {/* <Line/> */}
       {/* <Main /> */}
+      <h1> Daily Health Tracker</h1>
       <Rechart/>
 
     </div>

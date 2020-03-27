@@ -47,7 +47,7 @@ const App = ({ classes }) => {
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Multi Step Form
+            
           </Typography>
           <IconButton
             color="inherit"
@@ -60,14 +60,14 @@ const App = ({ classes }) => {
       </AppBar>
       <main className={classes.layout}>
         <Typography variant="h4" align="center" style={{ marginTop: 80 }}>
-          Multi Step Form
+        A Moment of Reflection 
         </Typography>
         <Typography
           variant="subtitle2"
           align="center"
           style={{ marginTop: 10, marginBottom: 10 }}
         >
-          React Material UI multi step form with basic form validation logic.
+             Please answer the questions based of how you have been feeling since last visit. 
         </Typography>
         <Paper className={classes.paper}>
           <StepForm />
@@ -78,16 +78,8 @@ const App = ({ classes }) => {
           align="center"
           style={{ margin: "10px 0", fontSize: ".75rem" }}
         >
-          Built with{" "}
-          <span role="img" aria-label="Emojis">
-            ❤️
-          </span>{" "}
-          by the{" "}
-          <a href="https://gkstyle.net/" title="GK STYLE">
-            {" "}
-            GK STYLE{" "}
-          </a>
-          team.
+        
+       
         </Typography>
       </main>
     </div>
