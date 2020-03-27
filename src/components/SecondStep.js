@@ -6,8 +6,6 @@ import Slider from '@material-ui/core/Slider';
 import Typography from "@material-ui/core/Typography";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
-
-
 // Destructure props
 const SecondStep = ({
   handleNext,
@@ -15,9 +13,9 @@ const SecondStep = ({
   handleChange,
   value
 }) => {
-  // Check if all values are not empty
-  // const isEmpty = []
-  // date.length > 0 && city.length > 0
+
+  console.log(value)
+
   const PrettoSlider = withStyles({
     root: {
       color: "#52af77",
@@ -75,7 +73,7 @@ const SecondStep = ({
     <Fragment>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-        Have you been Feeling down, depressed, or hopeless?
+        Have you been feeling down, depressed, or hopeless?
         <Typography gutterBottom></Typography>
           <PrettoSlider
             valueLabelDisplay="on"
@@ -83,38 +81,16 @@ const SecondStep = ({
             defaultValue={3}
             max={5}
             min={1}
-            value={value}
+            value={value["sadness"]}
             marks={marks}
             onChange={handleChange}
             />
         </Grid>
         <Grid item xs={12}>
-          {/* <TextField
-            fullWidth
-            InputLabelProps={{
-              shrink: true
-            }}
-            label="Date of birth"
-            name="birthday"
-            type="date"
-            defaultValue={date}
-            onChange={handleChange("date")}
-            margin="normal"
-            required
-          /> */}
+         
         </Grid>
         <Grid item xs={12}>
-          {/* <TextField
-            fullWidth
-            label="Phone number"
-            name="phone"
-            placeholder="i.e: xxx-xxx-xxxx"
-            defaultValue={phone}
-            onChange={handleChange("phone")}
-            margin="normal"
-            error={filedError.phone !== ""}
-            helperText={filedError.phone !== "" ? `${filedError.phone}` : ""}
-          /> */}
+        
         </Grid>
       </Grid>
       <div
@@ -130,7 +106,7 @@ const SecondStep = ({
         </Button>
         <Button
           variant="contained"
-          // disabled={!isEmpty || isError}
+          
           color="primary"
           onClick={handleNext}
         >

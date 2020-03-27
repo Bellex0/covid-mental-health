@@ -17,10 +17,7 @@ const FirstStep = ({
   handleInterestCommited,
   value
   }) => {
-  // Check if all values are not empty
-  // const isEmpty = [];
-
-  // const [ answer, setAnswer] = useState("")
+ 
   console.log(value)
 
   const PrettoSlider = withStyles({

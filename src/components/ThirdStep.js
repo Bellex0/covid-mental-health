@@ -13,9 +13,7 @@ const ThirdStep = ({
   handleChange,
   value
 }) => {
-  // Check if all values are not empty
-  // const isEmpty = []
-  // date.length > 0 && city.length > 0
+
   const PrettoSlider = withStyles({
     root: {
       color: "#52af77",
@@ -80,7 +78,7 @@ const ThirdStep = ({
             defaultValue={3}
             max={5}
             min={1}
-            value={value}
+            value={value["sleep"]}
             marks={marks}
             onChange={handleChange}
               />
@@ -98,7 +96,6 @@ const ThirdStep = ({
         </Button>
         <Button
           variant="contained"
-          // disabled={!isEmpty || isError}
           color="primary"
           onClick={handleNext}
         >

@@ -11,107 +11,74 @@ import Confirm from "./Confirm";
 import Success from "./Success";
 
 export default function StepForm() {
-// const emailRegex = RegExp(/^[^@]+@[^@]+\.[^@]+$/);
-// const phoneRegex = RegExp(/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4,6})$/);
-// Step titles
+
 const labels = [
   "Interest",
-  "Second Step",
-  "Third Step",
-  "Fourth Step",
-  "Fifth Step",
+  "Sadness",
+  "Sleep",
+  "Energy",
+  "Appetite",
   "Confirmation"
 ];
 
 // const StepForm = () => {
-  const [steps, setSteps] = useState(0);
-  // const [fields, setFields] = useState(""); 
+const [steps, setSteps] = useState(0);
 
 const [answer, setAnswer] = useState("")
-  // interest: "",
-  // depression: "", )
+ 
+const [sadAnswer, setSadAnswer] = useState("")
 
+const [sleepAnswer, setSleepAnswer] = useState("")
 
-// const [interestAnswer, setInterestAnswer] = useState("")
+const [energyAnswer, setEnergyAnswer] = useState("")
+
+const [appetiteAnswer, setAppetiteAnswer] = useState("")
 
 const handleChange = (evt, value) => {
     setAnswer(value)
   }
-  // const handleChange = (input) => ({target: {value}}) => {
-  //   console.log(value)
-  //   setAnswer({
-  //     ...answer,
-  //     [input]: value
-  //   })
-  // }
+
+ const handleChange2 =  (evt, value) => {
+  setSadAnswer(value)
+ }
+
+ const handleChange3 = (evt, value) => {
+  setSleepAnswer(value)
+ }
+
+ const handleChange4 = (evt, value) => {
+  setEnergyAnswer(value)
+ }
+
+ const handleChange5 = (evt, value) => {
+  setAppetiteAnswer(value)
+ }
+  
           const quesAnswers = [
-              { "interest": answer }
+              { "interest": answer }, 
+              {"sadness": sadAnswer},
+              {"sleep": sleepAnswer},
+              {"energy": energyAnswer},
+              {"appetite": appetiteAnswer}
           ]
 
-          console.log(quesAnswers[0])
+          console.log(quesAnswers[2])
 
-  // const handleInterestCommited = (evt, val) => {
-  //   setAnswer(val)
-  // }
-  // console.log(answer)
+ 
 
   // Proceed to next step
   const handleNext = () => setSteps(steps + 1);
   // Go back to prev step
   const handleBack = () => setSteps(steps - 1)
 
-  // Handle fields change
-  // const handleInterestChange = (input) => ({ target: { value } }) => {
-  //   const handleInterestChange = (name) => ({target: {value}}) => {
-  //     console.log(name)
-  //   setInterestAnswer({
-  //     ...interestAnswer, 
-  //      [name]:value
-  //   })
-  // }
+ 
 
 
-  // const handleInterestCommited=(input) => ({target: {value}}) => {
-  //   console.log(input)
-  //   setAnswer({
-  //     ...answer,
-  //     [input]: value
-  //   })
-  // }
-  // }
-  // const handleInterestChange = (evt, value) => { 
-    // setInterestAnswer(value)
-  // }
-
-  console.log(answer)
   
-
-  // // //   // Set values to the fields
-   // console.log(value)
-    //console.log(evt.target)
-    //console.log(input)
-
-    // setAnswer({
-    //   ...answer,  [evt]: value})
-    //...fields,
-      // [input]: value
-      //input]: value check........................................................................................................................................................ jeez
-
-    // console.log(interestAnswer)
+  
     
-  // // //     ...fields,
-  // //     // fields: evt.target.nextSibling.nextSibling.value
-      // answer: value
-  //   });
-    
-
-  //console.log(answer)
-  
-
-  
 
   const handleSteps = step => {
-    // console.log(answer) 
 
     switch (step) {
       case 0:
@@ -120,9 +87,6 @@ const handleChange = (evt, value) => {
             handleNext={handleNext}
             handleChange={handleChange}
             value={quesAnswers[0]}
-            // handleInterestCommited={handleInterestCommited}
-            // isError={isError}
-            // filedError={filedError}
           />
         );
       case 1:
@@ -130,10 +94,8 @@ const handleChange = (evt, value) => {
           <SecondStep
             handleNext={handleNext}
             handleBack={handleBack}
-            // handleChange={handleChange}
-            // value={answer}
-            // isError={isError}
-            // filedError={filedError}
+            handleChange={handleChange2}
+            value={quesAnswers[1]}
           />
         );
       case 2:
@@ -141,8 +103,8 @@ const handleChange = (evt, value) => {
           <ThirdStep
             handleNext={handleNext}
             handleBack={handleBack}
-            // handleChange={handleChange}
-            // value={answer}
+            handleChange={handleChange3}
+            value={quesAnswers[2]}
           />
         );
       case 3:
@@ -150,8 +112,8 @@ const handleChange = (evt, value) => {
           <FourthStep
             handleNext={handleNext}
             handleBack={handleBack}
-            // handleChange={handleChange}
-            // value={answer}
+            handleChange={handleChange4}
+            value={quesAnswers[3]}
           />
         );
       case 4:
@@ -159,8 +121,8 @@ const handleChange = (evt, value) => {
           <FifthStep
             handleNext={handleNext}
             handleBack={handleBack}
-            // handleChange={handleChange}
-            // value={answer}
+            handleChange={handleChange5}
+            value={quesAnswers[4]}
           />
         );
       case 5:
@@ -168,7 +130,7 @@ const handleChange = (evt, value) => {
           <Confirm
             handleNext={handleNext}
             handleBack={handleBack}
-            value={quesAnswers[0]} //check
+            values={quesAnswers} 
           />
         );
       default:

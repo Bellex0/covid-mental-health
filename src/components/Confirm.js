@@ -9,56 +9,46 @@ import Button from "@material-ui/core/Button";
 const Confirm = ({
   handleNext,
   handleBack,
-  value
+  values
 }) => {
 
-  console.log(value)
+console.log(values)  
   return (
     <Fragment>
        <List disablePadding>
         <ListItem>
-          <ListItemText primary="interest" secondary={value["interest"]} />
+          <ListItemText primary="Interest" secondary={values[0]["interest"]}/>
         </ListItem>
 
         <Divider />
 
         <ListItem>
-          {/* <ListItemText primary="depression" secondary={depressAnswer} /> */}
-        </ListItem>
-
-        <Divider />
-
-        {/* <ListItem>
-          <ListItemText primary="Email Address" secondary={email} />
+          <ListItemText primary="Sadness" secondary={values[1]["sadness"]} />
         </ListItem>
 
         <Divider />
 
         <ListItem>
-          <ListItemText primary="Gender" secondary={gender} />
+          <ListItemText primary="Sleep" secondary={values[2]["sleep"]} />
         </ListItem>
 
         <Divider />
 
         <ListItem>
-          <ListItemText primary="Date of birth" secondary={date} />
+          <ListItemText primary="Energy" secondary={values[3]["energy"]} />
         </ListItem>
 
         <Divider />
 
         <ListItem>
-          <ListItemText primary="City" secondary={city} />
-        </ListItem> */}
+          <ListItemText primary="Appetite" secondary={values[4]["appetite"]} />
+        </ListItem>
 
-        <Divider /> }
+        <Divider />
 
-        {/* <ListItem>
-          <ListItemText
-            primary="phone"
-            secondary={phone.length > 0 ? phone : "Not Provided"}
-          />
-        </ListItem> */}
-      </List> }
+      
+
+      </List> 
 
       <div
         style={{ display: "flex", marginTop: 50, justifyContent: "flex-end" }}
