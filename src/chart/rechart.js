@@ -11,13 +11,13 @@ export default class Chart extends Component {
     super();
     this.state = {
       rechartData: [
-        {name: 'Day 1', Interest: 3, Depressed: 4, Sleep: 3, Energy:4, Appetite: 5},
-        {name: 'Day 2', Interest: 6, Depressed: 6, Sleep: 5, Energy:7, Appetite: 3},
-        {name: 'Day 3', Interest: 3, Depressed: 5, Sleep: 4, Energy:2, Appetite: 3},
-        {name: 'Day 4', Interest: 2, Depressed: 2, Sleep: 4, Energy:1, Appetite: 4},
-        {name: 'Day 5', Interest: 2, Depressed: 1, Sleep: 5, Energy:5, Appetite: 3},
-        {name: 'Day 6', Interest: 5, Depressed: 2, Sleep: 3, Energy:1, Appetite: 5},
-        {name: 'Day 7', Interest: 1, Depressed: 3, Sleep: 1, Energy:5, Appetite: 3},
+        {name: 'Day 1', Interest: 3, Sadness: 4, Sleep: 3, Energy:4, Appetite: 5},
+        {name: 'Day 2', Interest: 6, Sadness: 6, Sleep: 5, Energy:7, Appetite: 3},
+        {name: 'Day 3', Interest: 3, Sadness: 5, Sleep: 4, Energy:2, Appetite: 3},
+        {name: 'Day 4', Interest: 2, Sadness: 2, Sleep: 4, Energy:1, Appetite: 4},
+        {name: 'Day 5', Interest: 2, Sadness: 1, Sleep: 5, Energy:5, Appetite: 3},
+        {name: 'Day 6', Interest: 5, Sadness: 2, Sleep: 3, Energy:1, Appetite: 5},
+        {name: 'Day 7', Interest: 1, Sadness: 3, Sleep: 1, Energy:5, Appetite: 3},
       ],
       isActive: false,
       interest: true,
@@ -27,18 +27,57 @@ export default class Chart extends Component {
       appetite: true
 
     };
+    console.log()
   }
 
-  handleChange = event => {
-    console.log(event.target.name)
-    this.setState({
-      [event.target.name]: !this.state.interest,
-      [event.target.name]: !this.state.sadness,
-      sleep: !this.state.sadness,
-      energy:!this.state.energy,
-      appetite: !this.state.appetite
-    });
-  };
+  // handleChange = event => {
+  //   console.log(event.target.name)
+  //   this.setState({
+  //     [event.target.name]: !this.state.interest,
+  //     [event.target.name]: !this.state.sadness,
+  //     sleep: !this.state.sleep,
+  //     energy:!this.state.energy,
+  //     appetite: !this.state.appetite
+  //   });
+  // };
+
+  // handleChange = event => {
+  //   const targetName = event.target.name
+  //   console.log(this.state)
+  //   this.setState( prevState => {
+  //     console.log(prevState)
+  //     return {
+  //       [targetName]: !this.state.interest,
+  //       [targetName]: !this.state.sadness,
+  //       [targetName]: !this.state.sleep,
+  //       [targetName]:!this.state.energy,
+  //       [targetName]: !this.state.appetite
+  //       // [nameOf]: !this.state.nameOf
+  //     }
+  //   })
+  // }
+
+   handleChange = evt =>  {
+    console.log(evt)
+    const targetName = evt.target.name
+    console.log(targetName)
+  this.setState({
+      [targetName]: !this.state.interest,
+      [targetName]: !this.state.sadness,
+      [targetName]: !this.state.sleep,
+      [targetName]:!this.state.energy,
+      [targetName]: !this.state.appetite
+    })
+  }
+
+  
+
+
+//   this.setState(prevState => {
+//     return {
+//         selectedQ: [ ...prevState.selectedQ, r.answer ]
+//     }
+// })
 
   onMouseDownHandler = (event, type) => {
     console.info(type, event)
@@ -67,12 +106,16 @@ export default class Chart extends Component {
   render() {
     const interest = this.state.interest ? this.createLine('Interest', 'green') : null 
     const sadness = this.state.sadness ? this.createLine('Sadness', 'black') : null 
+    const sleep = this.state.sleep ? this.createLine('Sleep', 'purple') : null
+    const energy = this.state.energy ? this.createLine('Energy', 'red') : null
+    const appetite = this.state.appetite ? this.createLine('Appetite', 'magenta') : null
     
     return (
       <>
-      <FormGroup row>
+      {/* <FormGroup row> */}
       <FormControlLabel
-        control={<Checkbox checked={this.state.interest} onChange={this.handleChange} name="interest" />}
+        control={<Checkbox checked={this.state.interest} onChange={this.handleChange} color="primary" name="interest" />}
+        
         label="Interest"
       />
       <FormControlLabel
@@ -86,7 +129,40 @@ export default class Chart extends Component {
         }
         label="Sadness"
       />
-      </FormGroup>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={this.state.sleep}
+            onChange={this.handleChange}
+            name="sleep"
+            color="primary"
+          />
+        }
+        label="Sleep"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={this.state.energy}
+            onChange={this.handleChange}
+            name="energy"
+            color="primary"
+          />
+        }
+        label="Energy"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={this.state.appetite}
+            onChange={this.handleChange}
+            name="appetite"
+            color="primary"
+          />
+        }
+        label="Appetite"
+      />
+      {/* </FormGroup> */}
       
       <>
       <ResponsiveContainer height={'100%'} width={'100%'}>
@@ -101,11 +177,14 @@ export default class Chart extends Component {
             <Legend />
             {interest}
             {sadness}
+            {sleep}
+            {energy}
+            {appetite}
             {/* {this.createLine('Interest', 'green')} */}
             {/* {this.createLine('Sadness', 'black')} */}
-            {this.createLine('Sleep', 'purple')}
-            {this.createLine('Energy', 'red')}
-            {this.createLine('Appetite', 'magenta')}
+            {/* {this.createLine('Sleep', 'purple')} */}
+            {/* {this.createLine('Energy', 'red')} */}
+            {/* {this.createLine('Appetite', 'magenta')} */}
             
           </LineChart>
       </ResponsiveContainer>
