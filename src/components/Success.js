@@ -4,11 +4,11 @@ import Typography from "@material-ui/core/Typography"
 const Success = () => {
   return (
     <Fragment>
-      <Typography variant="h2" align="center">
-        Thank you!
+      <Typography variant="h4" align="center">
+        Your Daily Health Tracker is now updated with today's ratings.
       </Typography>
-      <Typography component="p" align="center" style={{ marginTop: 40 }}>
-        You will get an email with further instructions
+      <Typography variant="h4" align="center" style={{ marginTop: 20 }}>
+      🌱
       </Typography>
     </Fragment>
   )
